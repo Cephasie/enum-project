@@ -16,10 +16,8 @@ import { CreateCohortApi } from "@/fetchData/CreateCohortApiFetch";
 import { AllProgramsApi } from "@/fetchData/AllPrograms";
 import ProgramSelection from "../programList/ProgramSelection";
 import UploadImage from "../uploadImage/UploadImage";
-import { CreateCohortModalStyle,SmallScreenModalStyle } from "./modalStyle/CreateCohortModalStyle";
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { createCohort } from "@/slice/CohortSlice";
 
 
 interface CohortData {
@@ -48,6 +46,8 @@ const CreateCohortModal: React.FC<{
     imageUrl: "",
   
   });
+
+  const [imageFile, setImageFile] = useState(null);
 
   const reset = () => {
     setCohortData({
@@ -100,8 +100,15 @@ const CreateCohortModal: React.FC<{
   };
 
   const handleButtonClick = () => {
-    
-    dispatch(CreateCohortApi(cohortData));
+    const formData = new FormData();
+    formData.append("cohortName", cohortData.cohortName);
+    formData.append("description", cohortData.description);
+    formData.append("program", cohortData.program);
+    formData.append("file", imageFile);
+    formData.append("startDate", cohortData.startDate.toString());
+    formData.append("endDate", cohortData.endDate.toString());
+    dispatch(CreateCohortApi(formData));
+    // dispatch(createCohort(cohortData));
     closeModal();
     reset();
   };
@@ -135,13 +142,13 @@ const CreateCohortModal: React.FC<{
         ...prev,
         imageUrl: result,
       }));
+      setImageFile(file);
     };
 
     reader.readAsDataURL(file);
   };
 
   const validData = Object.values(cohortData).some((value) => value === "");
-  // const validData = Object.values(cohortData).some((value) => value !== "") && cohortData.startDate && cohortData.endDate;
 
 const CreateCohortModalStyle = {
   position: "absolute",
@@ -215,7 +222,7 @@ const CreateCohortModalStyle = {
               Description
               <CustomInput
                 type={"text"}
-                placeHolder={"first cohort of programmers"}
+                placeHolder={"alpha cohort is the first cohort..."}
                 style={CohortDescriptionStyle}
                 value={cohortData.description}
                 name="description"
