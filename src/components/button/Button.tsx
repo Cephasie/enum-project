@@ -18,7 +18,7 @@ const Button: React.FC<ButtonProps> = ({ icons, text, style, onClick ,isDisabled
   return (
     <button onClick={onClick} style={buttonStyle} disabled={isDisabled}>
       {text}
-      {icons && icons.map((icon: any, index: number) => (
+      {Array.isArray(icons) && icons.map((icon: any, index: number) => (
         <span key={index}>{icon}</span>
       ))}
     </button>

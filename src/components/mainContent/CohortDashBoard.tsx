@@ -1,8 +1,5 @@
 import CustomInput from "@/input/CustomInput";
-import { AppDispatch, RootState } from "@/store/Store";
-import { useDispatch, useSelector } from "react-redux";
 import { LuSearch } from "react-icons/lu";
-
 import Picture from "@/assets/Picture";
 import CustomButton from "../button/Button";
 import createCohortStyles from "../button/buttonStyles/CreateCohortStyles";
@@ -10,37 +7,38 @@ import CreateCohortModal from "../modal/CreateCohortModal";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 import MoreActionButtonStyles from "../button/buttonStyles/MoreAction";
 import CohortAvatarStyle from "@/assets/style/CohortAvatarStyle";
-import { useEffect, useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ViewAllCohortUrl } from "@/assets/urls/urls";
-import EmptySpace from "../emptySpace/EmptySpace";
 
+interface CohortDashBoardProps {
+    handleOpen:any,
+    clicked: boolean,
+    handleClose: any
+}
 
-const CohortDashBoard = ({ handleOpen, clicked, handleClose }) => {
-  // const cohortData = useSelector(
-  //   (state: RootState) => state.cohortData.cohortData
-  // );
+const CohortDashBoard: React.FC<CohortDashBoardProps>  = ({ handleOpen, clicked,  handleClose }) => {
+
  const [cohortData,setCohortData] = useState([]);
 //  const dispatch = useDispatch<AppDispatch>();
 
 
 const dataExists = typeof cohortData === 'object' && Object.values(cohortData).some(value => value !== null && value !== "");
 
-const token = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJpc3MiOiJFbnVtIn0.aNaQX6099P1v9E67yUfxznob9bAQDWDWhEUCRgrgMKDxUMqZAEsYVIWJji3VwgrWaDrtQNNWpHjgpF8mgobEHg";
-
  useEffect( ()=>{
   const fetchCohort = async ()=>{
   try{
+      const  token = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJpc3MiOiJFbnVtIn0.aNaQX6099P1v9E67yUfxznob9bAQDWDWhEUCRgrgMKDxUMqZAEsYVIWJji3VwgrWaDrtQNNWpHjgpF8mgobEHg";
     const response = await axios.get(ViewAllCohortUrl, {
-      headers:{
-        "Authorization": `Bearer ${token}`
-      }
-    })
+        method: "GET",
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    });
     setCohortData(response.data)
-    console.log('response ---->',response.data)
+    console.log('response ---->', response.data)
   }
-  catch(e:(e)){
+  catch(e:any){
     console.log(e.error)
   }}
   fetchCohort()
@@ -70,7 +68,7 @@ const token = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJp
                 style={createCohortStyles}
                 onClick={handleOpen} isDisabled={false}        />
           <CustomButton
-                icons={[<HiOutlineDotsVertical />]}
+                icons={<HiOutlineDotsVertical />}
                 text={"More Actions"}
                 style={MoreActionButtonStyles} isDisabled={false}       />
         </div>
@@ -90,7 +88,7 @@ const token = "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJyb2xlcyI6WyJBRE1JTiJdLCJp
 
                 <div className="flex flex-col gap-2 ">
                 <div className="font-black">{item.cohortName}</div>
-                <div>{item.program}</div>
+                <div >{item.program}</div>
                 </div>
                 </div>
                 <div className="flex justify-center items-center gap-8 pr-7">
