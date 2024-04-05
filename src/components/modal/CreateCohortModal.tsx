@@ -214,7 +214,7 @@ const CreateCohortModalStyle = {
               Cohort Name
               <CustomInput
                 type={"text"}
-                placeHolder={"Ex.Cohorts"}
+                placeHolder={"Alpha Cohort"}
                 style={CohortNameStyle}
                 name="cohortName"
                 value={cohortData.cohortName}
@@ -230,7 +230,7 @@ const CreateCohortModalStyle = {
               Description
               <CustomInput
                 type={"text"}
-                placeHolder={"Ex.A space for python developers"}
+                placeHolder={"Alpha cohort is the pioneer cohort"}
                 style={CohortDescriptionStyle}
                 value={cohortData.description}
                 name="description"
