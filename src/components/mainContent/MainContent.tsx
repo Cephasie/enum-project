@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-import Picture from "@/assets/Picture";
-import CustomButton from "../button/Button";
-import { IoAddCircleOutline } from "react-icons/io5";
-import createCohortStyles from "../button/buttonStyles/CreateCohortStyles";
-import CreateCohortModal from "../modal/CreateCohortModal";
-import CreateProgramModal from "../modal/CreateProgramModal"; // Import your CreateProgramModal
 import CohortDashBoard from "./CohortDashBoard";
 import EmptySpace from "../emptySpace/EmptySpace";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/Store";
 
-const MainContent = ({ content }) => {
+interface mainComponent {
+  content: any
+}
+
+const MainContent: React.FC<mainComponent>  = ({ content }) => {
   const [isCohortClicked, setIsCohortClicked] = useState(false);
   const [isProgramClicked, setIsProgramClicked] = useState(false);
   const [isInstructorClicked, setIsInstructorClicked] = useState(false);
@@ -25,6 +23,7 @@ const MainContent = ({ content }) => {
 
   const cohortData = useSelector((state: RootState) => state.cohortData.cohortData);
   
+  // @ts-ignore
   const dataExists = typeof cohortData === 'object' && Object.values(cohortData).some(value => value !== null && value !== "");
 
   
@@ -44,15 +43,15 @@ const MainContent = ({ content }) => {
   };
 
   return (
-    <div className="absolute  p  w-62 justify-center items-center  md:w-9/12 h-[325px]  md:bottom-[55px] md:left-56">
+    <div className="w-62 justify-center items-center  md:w-9/12 h-[325px] md:pt-3 md:bottom-[55px] md:left-56">
       <div className=" text-lg font-bold font-serif w-[90px] h-[31px] hidden md:block">{content}</div>
-       {content === "Cohorts"  ? ( 
+      {content === "Cohorts"  ? (
         <CohortDashBoard
           clicked={isCohortClicked}
           handleOpen={getModalOpeningFunction(content)}
-         handleClose={handleClose}
-       />
-       ): (
+          handleClose={handleClose}
+        />
+      ) : (
         <EmptySpace
         callToActionText={
           content === "Cohorts"

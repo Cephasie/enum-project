@@ -2,6 +2,12 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {AllProgramsUrl} from "@/assets/urls/urls";
 
+
+interface ErrorResponse {
+    message: string;
+    // Add other properties if necessary
+}
+
 export const AllProgramsApi = createAsyncThunk(
     "programs/AllProgramsApi",
     async (_, { rejectWithValue }) => {
@@ -17,7 +23,7 @@ export const AllProgramsApi = createAsyncThunk(
             return response.data;
         } catch (error) {
             console.error("Error fetching programs:", error);
-            return rejectWithValue(error.message);
+            return rejectWithValue((error as ErrorResponse).message);
         }
     }
 );

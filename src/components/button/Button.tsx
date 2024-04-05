@@ -5,8 +5,9 @@ interface ButtonProps {
   text: string;
   style: any;
   onClick?: () => void;
-  isDisabled:boolean; 
- 
+  isDisabled:boolean;
+
+
 }
 
 const Button: React.FC<ButtonProps> = ({ icons, text, style, onClick ,isDisabled}) => {
@@ -16,12 +17,12 @@ const Button: React.FC<ButtonProps> = ({ icons, text, style, onClick ,isDisabled
   };
 
   return (
-    <button onClick={onClick} style={buttonStyle} disabled={isDisabled}>
-      {text}
-      {Array.isArray(icons) && icons.map((icon: any, index: number) => (
-        <span key={index}>{icon}</span>
-      ))}
-    </button>
+      <button onClick={onClick} style={buttonStyle} disabled={isDisabled}>
+        {text}
+        {Array.isArray(icons) && icons.map((icon: any, index: number) => (
+            <span key={index}>{icon}</span>
+        ))}
+      </button>
   );
 };
 

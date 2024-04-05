@@ -23,4 +23,3 @@ const ImageSlice = createSlice({
 
 export const {addImage} = ImageSlice.actions;
 export default ImageSlice.reducer;
-

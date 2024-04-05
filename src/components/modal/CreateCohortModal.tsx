@@ -47,7 +47,7 @@ const CreateCohortModal: React.FC<{
   
   });
 
-  const [imageFile, setImageFile] = useState(null);
+  const [imageFile, setImageFile] = useState<File | null>(null);
 
   const reset = () => {
     setCohortData({
@@ -84,12 +84,11 @@ const CreateCohortModal: React.FC<{
     closeModal();
     reset();
   };
-  
   useEffect(() => {
     dispatch(AllProgramsApi());
   }, []);
 
-  
+
   const handleInputChange = (
     event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -105,14 +104,19 @@ const CreateCohortModal: React.FC<{
     formData.append("cohortName", cohortData.cohortName);
     formData.append("description", cohortData.description);
     formData.append("program", cohortData.program);
-    formData.append("file", imageFile);
+
+    if (imageFile) {
+      formData.append("file", imageFile);
+    }
+
     formData.append("startDate", cohortData.startDate.toString());
     formData.append("endDate", cohortData.endDate.toString());
+    // @ts-ignore
     dispatch(CreateCohortApi(formData));
-    // dispatch(createCohort(cohortData));
     closeModal();
     reset();
   };
+
   const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
   };
@@ -156,7 +160,7 @@ const CreateCohortModalStyle = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "35%",
+  // width: "35%",
   height: "97%",
   bgcolor: "background.paper",
   borderRadius: "10px",
@@ -169,7 +173,7 @@ const CreateCohortModalStyle = {
   top: "60%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "90%", 
+  // width: "90%",
   height: "60%", 
   bgcolor: "background.paper",
   borderRadius: "10px",
@@ -185,6 +189,7 @@ const CreateCohortModalStyle = {
 
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
 
+  // @ts-ignore
   return (
     <div>
       <Modal
@@ -193,25 +198,27 @@ const CreateCohortModalStyle = {
         aria-describedby="modal-modal-description"
       >
         <Box sx={isSmallScreen ? SmallScreenModalStyle : CreateCohortModalStyle}>
-          <div className="flex flex-row justify-between font-bold text-2xl">
+          <div className="justify-between font-bold text-2xl">
             Create a Cohort
             <CustomButton
               text={""}
-              icons={[<CloseIcon />]}
+              icons={<CloseIcon />}
               onClick={closeModal}
               style={{ cursor: "pointer" }}
               isDisabled={false}
             />
+
           </div>
-          <div className="flex flex-col h-[98%] w-[105%] gap-5 overflow-x-hidden ">
+          <div className="flex flex-col h-[98%] md:w-[105%]  gap-5 overflow-x-hidden ">
             <div className="flex flex-col gap-2  pt-2">
               Cohort Name
               <CustomInput
                 type={"text"}
-                placeHolder={"alpha cohort"}
+                placeHolder={"Ex.Cohorts"}
                 style={CohortNameStyle}
                 name="cohortName"
                 value={cohortData.cohortName}
+                  // @ts-ignore
                 onChange={handleInputChange}
                 icon={undefined}
                 accept={""}
@@ -219,14 +226,15 @@ const CreateCohortModalStyle = {
                 min={undefined}
               />
             </div>
-            <div className="flex flex-col gap-2   pt-2">
+            <div className="flex flex-col gap-2 pt-2">
               Description
               <CustomInput
                 type={"text"}
-                placeHolder={"alpha cohort is the first cohort..."}
+                placeHolder={"Ex.A space for python developers"}
                 style={CohortDescriptionStyle}
                 value={cohortData.description}
                 name="description"
+                  // @ts-ignore
                 onChange={handleInputChange}
                 icon={undefined}
                 accept={""}
@@ -238,6 +246,7 @@ const CreateCohortModalStyle = {
             <div className="flex flex-col gap-2  pt-2">
               Program
               <ProgramSelection
+                  // @ts-ignore
                 onChange={handleInputChange}
                 value={cohortData.program}
                 programs={allPrograms}
@@ -249,6 +258,7 @@ const CreateCohortModalStyle = {
                 Start Date
                 <CustomInput
                   type={"date"}
+                    // @ts-ignore
                   onChange={handleInputChange}
                   value={cohortData.startDate}
                   name="startDate"
@@ -264,6 +274,7 @@ const CreateCohortModalStyle = {
                 End Date
                 <CustomInput
                   type={"date"}
+                    // @ts-ignore
                   onChange={handleInputChange}
                   name="endDate"
                   value={cohortData.endDate}
@@ -308,6 +319,7 @@ const CreateCohortModalStyle = {
               />
             </div>
           </div>
+
         </Box>
       </Modal>
     </div>

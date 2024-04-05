@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenuItem, Select } from '@mui/material';
+import { MenuItem, Select, SelectChangeEvent } from '@mui/material'; // Import SelectChangeEvent
 
 interface Program {
     id: string;
@@ -9,7 +9,7 @@ interface Program {
 interface ProgramSelectionProps {
     programs: Program[];
     value: any;
-    onChange?: (event: React.ChangeEvent<{ value: unknown }>) => void;
+    onChange?: (event: SelectChangeEvent<any>) => void;
 }
 
 const ProgramSelection: React.FC<ProgramSelectionProps> = ({ programs, value, onChange }) => {
@@ -18,13 +18,13 @@ const ProgramSelection: React.FC<ProgramSelectionProps> = ({ programs, value, on
             {programs && programs.length > 0 ? (
                 <Select autoComplete='' className="w-[381px]" value={value} name="program" onChange={onChange}>
                     {programs.map((program) => (
-                        <MenuItem key={program.id} value={program.programName}> {/* Render the program's name as the value */}
+                        <MenuItem key={program.id} value={program.programName}>
                             {program.programName}
                         </MenuItem>
                     ))}
                 </Select>
             ) : (
-                <div>No Programs Available yet...</div>
+                <div>Programs are not available!</div>
             )}
         </>
     );

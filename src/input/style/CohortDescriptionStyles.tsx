@@ -8,3 +8,4 @@ const CohortDescriptionStyle = {
   border: "1px solid #D0DCE4",
 };
 export default CohortDescriptionStyle;
+

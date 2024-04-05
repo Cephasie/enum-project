@@ -14,16 +14,26 @@ import { ViewAllCohortUrl } from "@/assets/urls/urls";
 interface CohortDashBoardProps {
     handleOpen:any,
     clicked: boolean,
-    handleClose: any
+    handleClose: any,
 }
+
+interface CohortData {
+    cohortName: string;
+    program: string;
+    startDate: string;
+    CohortAvatarUrl: string;
+}
+
 
 const CohortDashBoard: React.FC<CohortDashBoardProps>  = ({ handleOpen, clicked,  handleClose }) => {
 
- const [cohortData,setCohortData] = useState([]);
+    const [cohortData, setCohortData] = useState<CohortData[]>([]);
+
 //  const dispatch = useDispatch<AppDispatch>();
 
 
-const dataExists = typeof cohortData === 'object' && Object.values(cohortData).some(value => value !== null && value !== "");
+
+    const dataExists = typeof cohortData === 'object' && Object.values(cohortData).some(value => value !== null );
 
  useEffect( ()=>{
   const fetchCohort = async ()=>{
@@ -46,12 +56,13 @@ const dataExists = typeof cohortData === 'object' && Object.values(cohortData).s
  },[] )
 
 
-  return (
+    // @ts-ignore
+    return (
     <>
    {/*{cohortData && cohortData.length > 0 ? (*/}
     <div className="w-[300px] md:w-full md:text-blue border ">
       <div className="flex pt-5 gap-5 flex-col-reverse md:flex md:flex-row mt-5  md:justify-between  w-[100%]">
-        <div className="flex md:w-[400px] h-[44px] border  border-solid border-grey-100 gap-2 rounded-[7px] justify-start items-center pl-2 ">
+        <div className="flex md:w-[400px] sm:h-[12vh] md:h-[7vh] border  border-solid border-grey-100 gap-2 rounded-[7px] justify-start items-center pl-2 ">
           <LuSearch color={"#D0DCE4"} />
           <CustomInput placeHolder={"Search"} style={{ width: '360px' }}
           type={undefined} icon={undefined} value={undefined}
@@ -74,7 +85,7 @@ const dataExists = typeof cohortData === 'object' && Object.values(cohortData).s
         </div>
       </div>
 
-      <div className="flex flex-col mt-8 overflow-x-hidden w-3/4 md:w-[1025px] h-[250px] ">
+      <div className="flex flex-col mt-8 overflow-x-hidden w-3/4 md:w-[1025px] md:h-[250px] sm:h-[350px] ">
 
           <div>
             {cohortData.map((item, index) => (

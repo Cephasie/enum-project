@@ -3,8 +3,8 @@ import { GoArrowRight } from "react-icons/go";
 import CustomButton from "../button/Button";
 import viewProfileStyles from "../button/buttonStyles/ViewProfileStyles";
 import { SchoolBannerStyle } from "@/assets/style/SchoolBannerStyke";
-import CohortAvatarStyle from "@/assets/style/CohortAvatarStyle";
-import { CohortLetterStyle } from "@/assets/style/CohortLetterStyle";
+import Image from 'next/image';
+
 
 
 const SchoolBanner = () => {
@@ -20,7 +20,7 @@ const SchoolBanner = () => {
         </div>
         <CustomButton 
           text="View Profile"
-          icons={[<GoArrowRight />]}
+          icons={<GoArrowRight />}
           style={viewProfileStyles}
           isDisabled={false}
         />
