@@ -84,6 +84,7 @@ const CreateCohortModal: React.FC<{
     closeModal();
     reset();
   };
+  
   useEffect(() => {
     dispatch(AllProgramsApi());
   }, []);
