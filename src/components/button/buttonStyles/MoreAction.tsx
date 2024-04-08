@@ -3,13 +3,13 @@ const MoreActionButtonStyles ={
     display: 'flex',
     alignItems: 'center',
     backgroundColor: '#ffffff',
-    paddingLeft: '2rem',
-    paddingRight: '2rem',
+    paddingLeft: '1rem',
+    paddingRight: '1rem',
     paddingTop: '0.375rem',
     paddingBottom: '0.375rem',
-    gap: '0.5rem',
+    gap: '1rem',
     borderRadius: '0.375rem',
-    border:'solid 1px grey'
+    border:'solid 1px grey',
       
 }
 

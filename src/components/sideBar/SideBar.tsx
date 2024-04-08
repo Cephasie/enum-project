@@ -36,7 +36,7 @@ const SideBar: React.FC<Props> = ({ selectedTab, onClick }) => {
           <MenuItem></MenuItem>
         </Select>
       </div>
-      <div className="hidden  md:flex md:flex-col  md:w-[251px] md:h-[234.11px]   gap-1 mt-5">
+      <div className="hidden md:flex md:flex-col font-DM Sans md:w-[251px] md:h-[234.11px] gap-1 mt-5 pt-3">
       <SideBarItems selectedTab={selectedTab} onClick={onClick} item={'Cohorts'} icon={<LuUsers/>}/>
       <SideBarItems selectedTab={selectedTab} onClick={onClick} item={'Programs'} icon={<IoBookOutline/>}/>
       <SideBarItems selectedTab={selectedTab} onClick={onClick} item={'Instructors'} icon={<FiBriefcase/>}/>

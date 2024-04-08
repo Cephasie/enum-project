@@ -1,7 +1,7 @@
 const CohortAvatarStyle ={
 borderRadius: '10px',
-width: "59px",
-height: "59px",
+width: "50px",
+height: "50px",
 objectFit: "cover",
 
 }

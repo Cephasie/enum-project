@@ -16,11 +16,11 @@ const SchoolBanner = () => {
       <div className="flex flex-col justify-center items-center absolute top-1/4 md:top-1/2 left-4 transform md:-translate-y-1/2 gap-3 backdrop-blur-sm bg-white/30 h-24 md:w-[190px] w-48">
         <div className="flex justify-center items-center gap-1">
           <Picture url={"/company-logo.png"} style={SchoolBannerStyle} />
-          <span className="text-white text-sm font-semibold">Semicolon Africa</span>
+          <span className="text-#001343 text-sm font-semibold">Semicolon Africa</span>
         </div>
         <CustomButton 
           text="View Profile"
-          icons={<GoArrowRight />}
+          icons={[<GoArrowRight key="arrowIcon" />]}
           style={viewProfileStyles}
           isDisabled={false}
         />

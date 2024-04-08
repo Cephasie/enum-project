@@ -198,7 +198,7 @@ const CreateCohortModalStyle = {
         aria-describedby="modal-modal-description"
       >
         <Box sx={isSmallScreen ? SmallScreenModalStyle : CreateCohortModalStyle}>
-          <div className="justify-between font-bold text-2xl">
+          <div className="justify-between font-bold text-lg font-IBM Plex Serif">
             Create a Cohort
             <CustomButton
               text={""}
@@ -210,11 +210,11 @@ const CreateCohortModalStyle = {
 
           </div>
           <div className="flex flex-col h-[98%] md:w-[105%]  gap-5 overflow-x-hidden ">
-            <div className="flex flex-col gap-2  pt-2">
+            <div className="flex flex-col gap-2 pt-4 font-DM Sans text-sm">
               Cohort Name
               <CustomInput
                 type={"text"}
-                placeHolder={"Alpha Cohort"}
+                placeHolder={"Ex. Cohort 1"}
                 style={CohortNameStyle}
                 name="cohortName"
                 value={cohortData.cohortName}
@@ -226,11 +226,11 @@ const CreateCohortModalStyle = {
                 min={undefined}
               />
             </div>
-            <div className="flex flex-col gap-2 pt-2">
+            <div className="flex flex-col gap-2 pt-2 font-DM Sans text-sm">
               Description
               <CustomInput
                 type={"text"}
-                placeHolder={"Alpha cohort is the pioneer cohort"}
+                placeHolder={"Ex. A space for Python developers"}
                 style={CohortDescriptionStyle}
                 value={cohortData.description}
                 name="description"
@@ -243,7 +243,7 @@ const CreateCohortModalStyle = {
               />
             </div>
 
-            <div className="flex flex-col gap-2  pt-2">
+            <div className="flex flex-col gap-2 pt-2 font-DM Sans text-sm">
               Program
               <ProgramSelection
                   // @ts-ignore
@@ -254,7 +254,7 @@ const CreateCohortModalStyle = {
             </div>
 
             <div className="flex flex-row gap-5  pt-2">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 font-DM Sans text-sm">
                 Start Date
                 <CustomInput
                   type={"date"}
@@ -270,7 +270,7 @@ const CreateCohortModalStyle = {
                   accept={""}
                 />
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 font-DM Sans text-sm">
                 End Date
                 <CustomInput
                   type={"date"}
@@ -288,7 +288,7 @@ const CreateCohortModalStyle = {
               </div>
             </div>
 
-            <div className="flex flex-col gap-2 pt-2">
+            <div className="flex flex-col gap-2 pt-2 font-DM Sans text-sm">
               Add a cohort Avatar
               <UploadImage
                 handleDragOver={handleDragOver}
@@ -298,7 +298,7 @@ const CreateCohortModalStyle = {
               />
             </div>
 
-            <div className="flex  flex-row items-center gap-1">
+            <div className="flex  flex-row items-center gap-1 font-DM Sans text-sm">
               <MdOutlineInfo /> you can do this later
             </div>
 
