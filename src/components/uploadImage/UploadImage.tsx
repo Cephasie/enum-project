@@ -36,9 +36,9 @@ const UploadImage: React.FC<UploadImageProps> = ({ handleDragOver, handleDrop, c
                 <CustomInput
                     type="file"
                     style={{
-                      appearance: "none",
-                      width: '100px',
-                      cursor: "pointer",
+                    appearance: "none",
+                    width: '100px',
+                    cursor: "pointer",
                     }}
                     accept="image/*"
                     //@ts-ignore
