@@ -11,10 +11,8 @@ interface InputProps {
   min:any
   name:string;
   onClick?: () => void; 
-  onChange?:() => void;
- 
+  onChange?:() => void; 
 }
-
 
 const Input: React.FC<InputProps> =({icon,placeHolder,type,style,value,name,accept,max,min,onChange})=>{
     return(

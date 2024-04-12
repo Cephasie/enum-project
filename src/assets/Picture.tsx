@@ -9,4 +9,5 @@ const Picture: React.FC<ImageProps> = ({ url,style }) => {
     <img src={url} style={style} alt={""} />
   );
 };
+
 export default Picture;
