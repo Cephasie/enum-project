@@ -11,7 +11,7 @@ import { MobileLogoStyle } from "@/assets/style/moblieLogo";
 
 const SchoolHeader = () => {
   return (
-    <div className="border md:shadow-md md:h-20">
+    <div className="border md:shadow-md md:h-20 postio">
 
       <div className="md:hidden p-4 flex justify-between items-center h-10"> 
       <div className="h-10 w-[70px]">

@@ -88,7 +88,7 @@ const CohortDashBoard: React.FC<CohortDashBoardProps> = ({
 
   return (
     <>
-      <div className="w-[300px] md:w-full md:text-blue ">
+      <div className="w-[300px] md:w-full md:text-blue">
         <div className="flex pt-5 gap-5 flex-col-reverse md:flex md:flex-row mt-5 md:justify-between w-[100%]">
           <div className="flex md:w-[400px] sm:h-[12vh] md:h-[7vh] border border-solid border-gray-100 gap-2 rounded-[7px] justify-start items-center pl-2">
             <LuSearch color={"#D0DCE4"} />
@@ -108,7 +108,7 @@ const CohortDashBoard: React.FC<CohortDashBoardProps> = ({
             />
           </div>
 
-          <div className="flex flex-row  gap-4">
+          <div className="flex flex-row gap-4">
             <CustomButton
               icons={[]}
               text={"Create a cohort"}
@@ -124,7 +124,6 @@ const CohortDashBoard: React.FC<CohortDashBoardProps> = ({
             />
           </div>
         </div>
-
         <div
           className="flex flex-col overflow-x-hidden mt-8 w-3/4 md:w-[1070px] md:h-[215px] sm:h-[850px]"
           style={

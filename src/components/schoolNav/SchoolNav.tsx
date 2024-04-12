@@ -9,7 +9,7 @@ const SchoolNav = () => {
     };
   
     return (
-      <div className="flex flex-row justify-center items-center pt-5 w-full"> {/* Added w-full to adjust width */}
+      <div className="flex flex-row justify-center items-center pt-5 w-full">
         <NavItem item={'Home'} isSelected={selectedItem === 'Home'} onClick={() => handleItemClick('Home')} />
         <NavItem item={'WorkSpace'} isSelected={selectedItem === 'WorkSpace'} onClick={() => handleItemClick('WorkSpace')} />
         <NavItem item={'Resources Library'} isSelected={selectedItem === 'Resources Library'} onClick={() => handleItemClick('Resources Library')} />
