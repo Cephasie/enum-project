@@ -10,7 +10,7 @@ const MoreActionButtonStyles ={
     gap: '1rem',
     borderRadius: '0.375rem',
     border:'solid 1px grey',
-    height: '40px'
+    height: '48px'
       
 }
 
