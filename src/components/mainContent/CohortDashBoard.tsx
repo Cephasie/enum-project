@@ -11,6 +11,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { ViewAllCohortUrl } from "@/assets/urls/urls";
 import { FiUser } from "react-icons/fi";
+import style from './CohortDashBoardStyle.module.css'
 
 interface CohortDashBoardProps {
   handleOpen: any;
@@ -125,16 +126,13 @@ const CohortDashBoard: React.FC<CohortDashBoardProps> = ({
           </div>
         </div>
         <div
-          className="flex flex-col overflow-x-hidden mt-8 w-3/4 md:w-[1070px] md:h-[215px] sm:h-[850px]"
-          style={
-            screenHeight ? { height: `calc(${screenHeight}px - 90px)` } : {}
-          }
+          className={`flex flex-col overflow-x-hidden mt-8 md:w-full md:max-w-[100%] md:h-56 ${style.cohortList} sm:h-full`}          
         >
           {filteredCohorts.length > 0 ? (
             filteredCohorts.map((item, index) => (
               <div
                 key={index}
-                className="flex flex-row shadow-inner justify-between mb-5 p-2 h-[70px] items-center w-[1020px] border-[#F6FCF] rounded-lg "
+                className="flex flex-row shadow-inner justify-between mb-5 p-2 h-[70px] items-center md:w-full md:max-w-[100%] border-[#F6FCF] rounded-lg "
               >
                 <div className="flex gap-3 items-center">
                   <div className="flex justify-center items-center">

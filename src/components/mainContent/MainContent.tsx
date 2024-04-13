@@ -43,7 +43,7 @@ const MainContent: React.FC<mainComponent>  = ({ content }) => {
   };
 
   return (
-    <div className="w-62 justify-center items-center  md:w-9/12 h-[325px] md:pt-3 md:bottom-[55px] md:left-56">
+    <div className= "w-62 justify-center items-center  md:w-9/12 h-[325px] md:pt-3 md:bottom-[55px] md:left-56">
       <div className=" text-xl font-bold font- #1E323F font- IBM Plex serif w-[90px] h-[31px] hidden md:block pt-5">{content}</div>
       {content === "Cohorts"  ? (
         <CohortDashBoard

@@ -1,0 +1,5 @@
+.cohortList {
+    @media (min-width: 768px) {
+        max-height: calc(100vh-20px);
+    }
+}
