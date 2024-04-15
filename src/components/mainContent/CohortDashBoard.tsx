@@ -126,7 +126,8 @@ const CohortDashBoard: React.FC<CohortDashBoardProps> = ({
           </div>
         </div>
         <div
-          className={`flex flex-col overflow-x-hidden mt-8 md:w-full md:max-w-[100%] md:h-56 ${style.cohortList} sm:h-full`}          
+          className={`flex flex-col overflow-x-hidden md:w-full md:max-w-[100%] ${style.cohortList} sm:h-full mt-0 mb-0 ml-0 mr-0 pt-0 pb-0 pl-0 pr-0`}
+          style={{ maxHeight: 'calc(100vh - 100px)', overflowY: 'auto' }}
         >
           {filteredCohorts.length > 0 ? (
             filteredCohorts.map((item, index) => (

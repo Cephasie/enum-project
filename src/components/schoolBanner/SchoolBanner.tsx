@@ -11,7 +11,7 @@ const SchoolBanner = () => {
   return (
     <div className="md:mt-3 relative bg-[url('/unsplash_LWfFfA5U5z8.png')]">
      
-      <img src='/unsplash_LWfFfA5U5z8.png' alt="" className="h-48 w-full   md:h-auto md:w-auto" />
+      <img src='/unsplash_LWfFfA5U5z8.png' alt="" className="h-48 w-full md:h-auto md:w-auto bg-no-repeat" />
 
       <div className="flex flex-col justify-center items-center absolute top-1/4 md:top-1/2 left-4 transform md:-translate-y-1/2 gap-3 backdrop-blur-sm bg-white/30 h-24 md:w-[190px] w-48">
         <div className="flex justify-center items-center gap-1">
